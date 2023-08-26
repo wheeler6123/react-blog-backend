@@ -34,24 +34,24 @@ const Post = mongoose.model('Post', postSchema);
 // get all posts
 app.get('/posts', async (req, res) => {
     const posts = await Post.find();
-    res.json(posts);
+    res.send(posts);
 });
 
 // get one post
 app.get('/posts/:id', async (req, res) => {
     const post = await Post.findById(req.params.id);
-    res.json(post);
+    res.send(post);
 });
 
 // create post
 app.post('/posts', async (req, res) => {
     const post = new Post(req.body);
     await post.save();
-    res.json(post);
+    res.send(post);
 });
 
 // delete post
 app.delete('/posts/:id', async (req, res) => {
     const post = await Post.findByIdAndDelete(req.params.id);
-    res.json(post);
+    res.send(post);
 });
