@@ -45,9 +45,9 @@ app.get('/posts/:id', async (req, res) => {
 
 // create post
 app.post('/posts', async (req, res) => {
-    const post = new Post(req.body);
-    await post.save();
-    res.send(post);
+    const newPost = new Post(req.body);
+    const savedPost = await newPost.save();
+    res.send(savedPost);
 });
 
 // delete post
@@ -55,3 +55,6 @@ app.delete('/posts/:id', async (req, res) => {
     const post = await Post.findByIdAndDelete(req.params.id);
     res.send(post);
 });
+
+// start server
+app.listen(3000, () => console.log('Server started'));
