@@ -57,4 +57,4 @@ app.delete('/posts/:id', async (req, res) => {
 });
 
 // start server
-app.listen(3000, () => console.log('Server started'));
+app.listen(5000, () => console.log('Server started'));
